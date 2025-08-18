@@ -1,27 +1,86 @@
 [
   {
-    "question": "What's the postcode of the track?",
-    "keywords": ["postcode", "address", "location"],
-    "answer": "📍 The track is located at **KT3 6DD**."
+    "intent": "tickets_check",
+    "keywords": ["tickets", "how many tickets", "my tickets", "check tickets"],
+    "response": "🎟️ Got it! Do you already have a tracking code to check your tickets?"
   },
   {
-    "question": "How many tickets do I have?",
-    "keywords": ["ticket", "tickets", "how many"],
-    "answer": "🎟️ You currently have **3 tickets** linked to your account."
+    "intent": "tracking_code_prompt",
+    "keywords": ["yes", "i have", "got code", "have a code"],
+    "response": "🔎 Great! Please enter your tracking code so I can check your ticket details."
   },
   {
-    "question": "When is my next booking?",
-    "keywords": ["next booking", "when", "booking"],
-    "answer": "🗓️ Your next booking is **this Sunday at 2PM**."
+    "intent": "purchase_tickets",
+    "keywords": ["no", "don’t have", "don’t know", "no code"],
+    "response": "💸 No worries! Would you like to purchase tickets now? I can guide you."
   },
   {
-    "question": "What are your opening hours?",
-    "keywords": ["open", "hours", "time", "when open"],
-    "answer": "🕘 We're open **7 days a week from 9AM to 9PM**!"
-  },
-  {
-    "question": "Can I cancel my booking?",
-    "keywords": ["cancel", "booking", "refund"],
-    "answer": "❌ You can cancel within **24 hours of booking** to get a refund. Otherwise, give us a call."
+    "intent": "track_location",
+    "keywords": ["where", "track location", "postcode", "where are you", "gillingham"],
+    "response": "📍 Our track is located in **Gillingham, Kent** — ready when you are!"
   }
 ]
+[
+  {
+    "intent": "opening_days",
+    "keywords": ["open", "opening days", "week", "when are you open", "days open"],
+    "answer": "📅 We're open all week **except Monday and Tuesday**. Those two days are reserved for private bookings only."
+  },
+  {
+    "intent": "promotions_saturday",
+    "keywords": ["discount", "promotional", "deal", "promo", "saturday"],
+    "answer": "⚠️ Promotional discounts **do not apply on Saturdays**."
+  },
+  {
+    "intent": "opening_hours",
+    "keywords": ["opening hours", "open till", "closing time", "when do you close", "hours", "time"],
+    "answer": "🕒 We're open **from the afternoon until 22:00 (10PM)**."
+  },
+  {
+    "intent": "track_type",
+    "keywords": ["indoor", "track type", "outdoor", "inside", "outside"],
+    "answer": "🏁 Our **Gillingham track is fully indoor**, perfect rain or shine!"
+  },
+  {
+    "intent": "kart_type_speed",
+    "keywords": ["electric", "speed", "how fast", "go karts", "engine", "mph"],
+    "answer": "⚡ We use **electric go karts** that reach speeds of up to **40mph**!"
+  },
+  {
+    "intent": "adult_karting_height",
+    "keywords": ["adult", "height", "requirement", "5ft", "height limit"],
+    "answer": "📏 For **adult karting**, you must be **over 5ft (152cm)** tall."
+  },
+  {
+    "intent": "junior_karting_height",
+    "keywords": ["junior", "children", "kids", "127cm", "how tall", "young"],
+    "answer": "🧒 Junior karting starts from **127cm** in height."
+  },
+  {
+    "intent": "shoes_height",
+    "keywords": ["shoes", "footwear", "height", "boots", "measuring"],
+    "answer": "👟 Yes — **shoes do count toward height** for karting requirements."
+  },
+  {
+    "intent": "equipment_included",
+    "keywords": ["equipment", "included", "gear", "helmet", "balaclava", "rental", "included in price"],
+    "answer": "🧤 All gear is included — **helmet, balaclava, and kart rental** are covered in your price!"
+  }
+]
+[
+  {
+    "intent": "check_tickets",
+    "keywords": ["check", "remaining", "tickets", "how many", "balance", "left"],
+    "answer": "🎟️ You can check your remaining tickets here: [Customer Dashboard](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/custdash.php)"
+  },
+  {
+    "intent": "ticket_gifting",
+    "keywords": ["gift", "gifting", "give", "transfer", "new code", "sell", "share", "tracking"],
+    "answer": "🎁 You can use our **gifting system** to transfer tickets to a new code for gifting or resale — all from the same dashboard: [Customer Dashboard](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/custdash.php)"
+  }
+]
+{
+  "intent": "session_laps",
+  "keywords": ["how many laps", "sessions", "session", "lap count", "how long", "duration", "length", "time"],
+  "answer": "🏎️ Each session can be up to **20 laps**, depending on lap times. For a typical 3-session day, you can expect around **44+ laps total**. The exact number may vary based on your speed!"
+}
