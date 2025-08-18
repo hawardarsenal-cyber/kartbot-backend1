@@ -1,41 +1,34 @@
 const express = require('express');
 const cors = require('cors');
-const { OpenAI } = require('openai');
-
+const fs = require('fs');
 const app = express();
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
 
-app.post('/ask', async (req, res) => {
-  const question = req.body.question || '';
+// Load FAQs
+const faqs = JSON.parse(fs.readFileSync('./faqs.json', 'utf8'));
 
-  // Mock ticket check
-  const isTicketCheck = /ticket|booking|how many/i.test(question);
-  const hasEmail = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(question);
-
-  if (isTicketCheck && hasEmail) {
-    return res.json({
-      answer: `✅ Found 3 tickets remaining for your upcoming event. Get ready to race! 🏎️`
-    });
+// Basic keyword match
+function findAnswer(userInput) {
+  const input = userInput.toLowerCase();
+  for (const faq of faqs) {
+    if (faq.keywords.some(keyword => input.includes(keyword))) {
+      return faq.answer;
+    }
   }
-
-try {
-  const completion = await openai.completions.create({
-    model: "text-davinci-003",
-    prompt: `You are KartBot, the helpful assistant for kartingcentral.co.uk. Answer ONLY questions about karting, tickets, events, and bookings.\nUser: ${question}\nKartBot:`,
-    max_tokens: 150,
-    temperature: 0.7,
-  });
-
-  res.json({ answer: completion.choices[0].text.trim() });
-} catch (err) {
-  console.error('❌ OpenAI error:', err);
-  res.status(500).json({ answer: "Sorry, I'm having trouble responding right now." });
+  return "🤖 Hmm, I’m not sure. Could you try rephrasing?";
 }
 
+// POST /chat
+app.post('/chat', (req, res) => {
+  const message = req.body.message || '';
+  const reply = findAnswer(message);
+  res.json({ reply });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`KartBot is live on port ${PORT}`));
+// Start server
+app.listen(PORT, () => {
+  console.log(`✅ Chatbot API running at http://localhost:${PORT}`);
+});

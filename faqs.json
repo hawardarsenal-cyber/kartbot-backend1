@@ -1,0 +1,27 @@
+[
+  {
+    "question": "What's the postcode of the track?",
+    "keywords": ["postcode", "address", "location"],
+    "answer": "📍 The track is located at **KT3 6DD**."
+  },
+  {
+    "question": "How many tickets do I have?",
+    "keywords": ["ticket", "tickets", "how many"],
+    "answer": "🎟️ You currently have **3 tickets** linked to your account."
+  },
+  {
+    "question": "When is my next booking?",
+    "keywords": ["next booking", "when", "booking"],
+    "answer": "🗓️ Your next booking is **this Sunday at 2PM**."
+  },
+  {
+    "question": "What are your opening hours?",
+    "keywords": ["open", "hours", "time", "when open"],
+    "answer": "🕘 We're open **7 days a week from 9AM to 9PM**!"
+  },
+  {
+    "question": "Can I cancel my booking?",
+    "keywords": ["cancel", "booking", "refund"],
+    "answer": "❌ You can cancel within **24 hours of booking** to get a refund. Otherwise, give us a call."
+  }
+]
