@@ -2,25 +2,23 @@
   {
     "intent": "tickets_check",
     "keywords": ["tickets", "how many tickets", "my tickets", "check tickets"],
-    "response": "🎟️ Got it! Do you already have a tracking code to check your tickets?"
+    "answer": "🎟️ Got it! Do you already have a tracking code to check your tickets?"
   },
   {
     "intent": "tracking_code_prompt",
     "keywords": ["yes", "i have", "got code", "have a code"],
-    "response": "🔎 Great! Please enter your tracking code so I can check your ticket details."
+    "answer": "🔎 Great! Please enter your tracking code so I can check your ticket details."
   },
   {
     "intent": "purchase_tickets",
     "keywords": ["no", "don’t have", "don’t know", "no code"],
-    "response": "💸 No worries! Would you like to purchase tickets now? I can guide you."
+    "answer": "💸 No worries! Would you like to purchase tickets now? I can guide you."
   },
   {
     "intent": "track_location",
     "keywords": ["where", "track location", "postcode", "where are you", "gillingham"],
-    "response": "📍 Our track is located in **Gillingham, Kent** — ready when you are!"
-  }
-]
-[
+    "answer": "📍 Our track is located in **Gillingham, Kent** — ready when you are!"
+  },
   {
     "intent": "opening_days",
     "keywords": ["open", "opening days", "week", "when are you open", "days open"],
@@ -65,9 +63,7 @@
     "intent": "equipment_included",
     "keywords": ["equipment", "included", "gear", "helmet", "balaclava", "rental", "included in price"],
     "answer": "🧤 All gear is included — **helmet, balaclava, and kart rental** are covered in your price!"
-  }
-]
-[
+  },
   {
     "intent": "check_tickets",
     "keywords": ["check", "remaining", "tickets", "how many", "balance", "left"],
@@ -77,10 +73,10 @@
     "intent": "ticket_gifting",
     "keywords": ["gift", "gifting", "give", "transfer", "new code", "sell", "share", "tracking"],
     "answer": "🎁 You can use our **gifting system** to transfer tickets to a new code for gifting or resale — all from the same dashboard: [Customer Dashboard](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/custdash.php)"
+  },
+  {
+    "intent": "session_laps",
+    "keywords": ["how many laps", "sessions", "session", "lap count", "how long", "duration", "length", "time"],
+    "answer": "🏎️ Each session can be up to **20 laps**, depending on lap times. For a typical 3-session day, you can expect around **44+ laps total**. The exact number may vary based on your speed!"
   }
 ]
-{
-  "intent": "session_laps",
-  "keywords": ["how many laps", "sessions", "session", "lap count", "how long", "duration", "length", "time"],
-  "answer": "🏎️ Each session can be up to **20 laps**, depending on lap times. For a typical 3-session day, you can expect around **44+ laps total**. The exact number may vary based on your speed!"
-}
