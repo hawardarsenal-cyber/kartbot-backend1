@@ -78,5 +78,31 @@
     "intent": "session_laps",
     "keywords": ["how many laps", "sessions", "session", "lap count", "how long", "duration", "length", "time"],
     "answer": "🏎️ Each session can be up to **20 laps**, depending on lap times. For a typical 3-session day, you can expect around **44+ laps total**. The exact number may vary based on your speed!"
-  }
+  },
+{
+  "intent": "karts_on_track",
+  "keywords": ["how many karts", "karts at once", "track capacity", "number of karts", "max karts"],
+  "answer": "🏎️ We allow **up to 10 karts on the track at the same time** for safety and performance."
+},
+{
+  "intent": "booking_link",
+  "keywords": ["book", "booking", "reserve", "buy tickets", "book experience"],
+  "answer": "📅 You can book your tickets directly here: [Book Experience](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/book_experience.php)"
+},
+{
+  "intent": "tracking_code_required",
+  "keywords": ["tracking code", "already have code", "check with code", "code check", "ticket check link"],
+  "answer": "🎫 If you already have a tracking code, head to the [Customer Dashboard](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/custdash.php) to view and manage your tickets."
+},
+{
+  "intent": "birthday_parties",
+  "keywords": ["birthday", "party", "celebration", "group booking", "food", "catering"],
+  "answer": "🎉 Yes! We host **birthday parties** and can even **cater food** if you let us know in advance!"
+},
+{
+  "intent": "prebook_requirement",
+  "keywords": ["pre book", "pre-book", "appointment", "book ahead", "schedule", "time slot"],
+  "answer": "📝 To ensure your slot, **you must pre-book your karting sessions**. We recommend doing this early!"
+}
+
 ]
