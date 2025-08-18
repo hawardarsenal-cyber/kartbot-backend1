@@ -1,22 +1,34 @@
 const express = require('express');
 const cors = require('cors');
+const fs = require('fs');
 const app = express();
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 3001;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Simple /chat endpoint
-app.post('/chat', (req, res) => {
-  const userMessage = req.body.message;
-  console.log('Received:', userMessage);
+// Load FAQs
+const faqs = JSON.parse(fs.readFileSync('./faqs.json', 'utf8'));
 
-  // Example response
-  res.json({ reply: `You said: "${userMessage}" 🏁` });
+// Basic keyword match
+function findAnswer(userInput) {
+  const input = userInput.toLowerCase();
+  for (const faq of faqs) {
+    if (faq.keywords.some(keyword => input.includes(keyword))) {
+      return faq.answer;
+    }
+  }
+  return "🤖 Hmm, I’m not sure. Could you try rephrasing?";
+}
+
+// POST /chat
+app.post('/chat', (req, res) => {
+  const message = req.body.message || '';
+  const reply = findAnswer(message);
+  res.json({ reply });
 });
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`✅ Chatbot backend running on http://localhost:${PORT}`);
+  console.log(`✅ Chatbot API running at http://localhost:${PORT}`);
 });
