@@ -21,23 +21,20 @@ app.post('/ask', async (req, res) => {
     });
   }
 
-  try {
-    const chat = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo'
-      messages: [
-        {
-          role: 'system',
-          content: 'You are KartBot, the helpful assistant for kartingcentral.co.uk. Answer ONLY questions about karting, tickets, events, and bookings.'
-        },
-        { role: 'user', content: question }
-      ]
-    });
+try {
+  const completion = await openai.completions.create({
+    model: "text-davinci-003",
+    prompt: `You are KartBot, the helpful assistant for kartingcentral.co.uk. Answer ONLY questions about karting, tickets, events, and bookings.\nUser: ${question}\nKartBot:`,
+    max_tokens: 150,
+    temperature: 0.7,
+  });
 
-    res.json({ answer: chat.choices[0].message.content });
-  } catch (err) {
-    console.error('❌ OpenAI error:', err);
-    res.status(500).json({ answer: "Sorry, I'm having trouble responding right now." });
-  }
+  res.json({ answer: completion.choices[0].text.trim() });
+} catch (err) {
+  console.error('❌ OpenAI error:', err);
+  res.status(500).json({ answer: "Sorry, I'm having trouble responding right now." });
+}
+
 });
 
 const PORT = process.env.PORT || 3000;
