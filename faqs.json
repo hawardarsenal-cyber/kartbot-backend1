@@ -2,7 +2,7 @@
   {
     "intent": "tickets_check",
     "keywords": [
-      "tickets", "how many tickets", "my tickets", "check tickets", "ticket balance", 
+      "tickets", "how many tickets", "my tickets", "check tickets", "ticket balance",
       "available tickets", "view my tickets", "how much left", "track my tickets"
     ],
     "answer": "🎟️ Got it! If you already have tickets, you can check them here: [Customer Dashboard](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/custdash.php)"
@@ -10,7 +10,7 @@
   {
     "intent": "tracking_code_prompt",
     "keywords": [
-      "yes", "i have", "got code", "have a code", "tracking code ready", "i know my code", 
+      "yes", "i have", "got code", "have a code", "tracking code ready", "i know my code",
       "already have ticket", "already have tracking code"
     ],
     "answer": "🔎 Great! Use your tracking code on the [Customer Dashboard](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/custdash.php) to view your tickets or gift them."
@@ -18,7 +18,7 @@
   {
     "intent": "purchase_tickets",
     "keywords": [
-      "no", "don’t have", "don’t know", "no code", "lost code", "need to buy", 
+      "no", "don’t have", "don’t know", "no code", "lost code", "need to buy",
       "buy tickets", "get tickets", "purchase", "how to buy"
     ],
     "answer": "💸 No worries! You can buy new tickets here: [Book Tickets](https://www.kartingcentral.co.uk/gokarting--ticket-bookings)"
@@ -76,7 +76,7 @@
   {
     "intent": "ticket_gifting",
     "keywords": [
-      "gift", "gifting", "give", "transfer", "new code", "sell", "share", 
+      "gift", "gifting", "give", "transfer", "new code", "sell", "share",
       "tracking", "code transfer", "gift code", "move tickets"
     ],
     "answer": "🎁 You can use our **gifting system** to transfer or gift tickets to a new code — all from the [Customer Dashboard](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/custdash.php)"
