@@ -1,108 +1,124 @@
 [
   {
     "intent": "tickets_check",
-    "keywords": ["tickets", "how many tickets", "my tickets", "check tickets"],
-    "answer": "🎟️ Got it! Do you already have a tracking code to check your tickets?"
+    "keywords": [
+      "tickets", "how many tickets", "my tickets", "check tickets", "ticket balance", 
+      "available tickets", "view my tickets", "how much left", "track my tickets"
+    ],
+    "answer": "🎟️ Got it! If you already have tickets, you can check them here: [Customer Dashboard](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/custdash.php)"
   },
   {
     "intent": "tracking_code_prompt",
-    "keywords": ["yes", "i have", "got code", "have a code"],
-    "answer": "🔎 Great! Please enter your tracking code so I can check your ticket details."
+    "keywords": [
+      "yes", "i have", "got code", "have a code", "tracking code ready", "i know my code", 
+      "already have ticket", "already have tracking code"
+    ],
+    "answer": "🔎 Great! Use your tracking code on the [Customer Dashboard](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/custdash.php) to view your tickets or gift them."
   },
   {
     "intent": "purchase_tickets",
-    "keywords": ["no", "don’t have", "don’t know", "no code"],
-    "answer": "💸 No worries! Would you like to purchase tickets now? I can guide you."
+    "keywords": [
+      "no", "don’t have", "don’t know", "no code", "lost code", "need to buy", 
+      "buy tickets", "get tickets", "purchase", "how to buy"
+    ],
+    "answer": "💸 No worries! You can buy new tickets here: [Book Tickets](https://www.kartingcentral.co.uk/gokarting--ticket-bookings)"
   },
   {
     "intent": "track_location",
-    "keywords": ["where", "track location", "postcode", "where are you", "gillingham"],
+    "keywords": ["where", "track location", "postcode", "where are you", "gillingham", "venue address", "location of track"],
     "answer": "📍 Our track is located in **Gillingham, Kent** — ready when you are!"
   },
   {
     "intent": "opening_days",
-    "keywords": ["open", "opening days", "week", "when are you open", "days open"],
+    "keywords": ["open", "opening days", "week", "when are you open", "days open", "weekly schedule", "availability"],
     "answer": "📅 We're open all week **except Monday and Tuesday**. Those two days are reserved for private bookings only."
   },
   {
     "intent": "promotions_saturday",
-    "keywords": ["discount", "promotional", "deal", "promo", "saturday"],
+    "keywords": ["discount", "promotional", "deal", "promo", "saturday", "offer", "voucher", "sale"],
     "answer": "⚠️ Promotional discounts **do not apply on Saturdays**."
   },
   {
     "intent": "opening_hours",
-    "keywords": ["opening hours", "open till", "closing time", "when do you close", "hours", "time"],
+    "keywords": ["opening hours", "open till", "closing time", "when do you close", "hours", "time", "what time do you open", "schedule"],
     "answer": "🕒 We're open **from the afternoon until 22:00 (10PM)**."
   },
   {
     "intent": "track_type",
-    "keywords": ["indoor", "track type", "outdoor", "inside", "outside"],
+    "keywords": ["indoor", "track type", "outdoor", "inside", "outside", "weather proof", "covered"],
     "answer": "🏁 Our **Gillingham track is fully indoor**, perfect rain or shine!"
   },
   {
     "intent": "kart_type_speed",
-    "keywords": ["electric", "speed", "how fast", "go karts", "engine", "mph"],
+    "keywords": ["electric", "speed", "how fast", "go karts", "engine", "mph", "top speed", "kart specs"],
     "answer": "⚡ We use **electric go karts** that reach speeds of up to **40mph**!"
   },
   {
     "intent": "adult_karting_height",
-    "keywords": ["adult", "height", "requirement", "5ft", "height limit"],
+    "keywords": ["adult", "height", "requirement", "5ft", "height limit", "tall enough", "minimum height", "adult height"],
     "answer": "📏 For **adult karting**, you must be **over 5ft (152cm)** tall."
   },
   {
     "intent": "junior_karting_height",
-    "keywords": ["junior", "children", "kids", "127cm", "how tall", "young"],
+    "keywords": ["junior", "children", "kids", "127cm", "how tall", "young", "child height", "minimum junior height"],
     "answer": "🧒 Junior karting starts from **127cm** in height."
   },
   {
     "intent": "shoes_height",
-    "keywords": ["shoes", "footwear", "height", "boots", "measuring"],
+    "keywords": ["shoes", "footwear", "height", "boots", "measuring", "count shoes", "include shoes"],
     "answer": "👟 Yes — **shoes do count toward height** for karting requirements."
   },
   {
     "intent": "equipment_included",
-    "keywords": ["equipment", "included", "gear", "helmet", "balaclava", "rental", "included in price"],
+    "keywords": ["equipment", "included", "gear", "helmet", "balaclava", "rental", "included in price", "what’s included", "kit provided"],
     "answer": "🧤 All gear is included — **helmet, balaclava, and kart rental** are covered in your price!"
   },
   {
-    "intent": "check_tickets",
-    "keywords": ["check", "remaining", "tickets", "how many", "balance", "left"],
-    "answer": "🎟️ You can check your remaining tickets here: [Customer Dashboard](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/custdash.php)"
-  },
-  {
     "intent": "ticket_gifting",
-    "keywords": ["gift", "gifting", "give", "transfer", "new code", "sell", "share", "tracking"],
-    "answer": "🎁 You can use our **gifting system** to transfer tickets to a new code for gifting or resale — all from the same dashboard: [Customer Dashboard](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/custdash.php)"
+    "keywords": [
+      "gift", "gifting", "give", "transfer", "new code", "sell", "share", 
+      "tracking", "code transfer", "gift code", "move tickets"
+    ],
+    "answer": "🎁 You can use our **gifting system** to transfer or gift tickets to a new code — all from the [Customer Dashboard](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/custdash.php)"
   },
   {
     "intent": "session_laps",
-    "keywords": ["how many laps", "sessions", "session", "lap count", "how long", "duration", "length", "time"],
-    "answer": "🏎️ Each session can be up to **20 laps**, depending on lap times. For a typical 3-session day, you can expect around **44+ laps total**. The exact number may vary based on your speed!"
+    "keywords": ["how many laps", "sessions", "session", "lap count", "how long", "duration", "length", "time", "how many", "number of laps"],
+    "answer": "🏎️ Each session can be up to **20 laps**, depending on lap times. For a typical 3-session day, you can expect around **44+ laps total**."
   },
-{
-  "intent": "karts_on_track",
-  "keywords": ["how many karts", "karts at once", "track capacity", "number of karts", "max karts"],
-  "answer": "🏎️ We allow **up to 10 karts on the track at the same time** for safety and performance."
-},
-{
-  "intent": "booking_link",
-  "keywords": ["book", "booking", "reserve", "buy tickets", "book experience"],
-  "answer": "📅 You can book your tickets directly here: [Book Experience](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/book_experience.php)"
-},
-{
-  "intent": "tracking_code_required",
-  "keywords": ["tracking code", "already have code", "check with code", "code check", "ticket check link"],
-  "answer": "🎫 If you already have a tracking code, head to the [Customer Dashboard](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/custdash.php) to view and manage your tickets."
-},
-{
-  "intent": "birthday_parties",
-  "keywords": ["birthday", "party", "celebration", "group booking", "food", "catering"],
-  "answer": "🎉 Yes! We host **birthday parties** and can even **cater food** if you let us know in advance!"
-},
-{
-  "intent": "prebook_requirement",
-  "keywords": ["pre book", "pre-book", "appointment", "book ahead", "schedule", "time slot"],
-  "answer": "📝 To ensure your slot, **you must pre-book your karting sessions**. We recommend doing this early!"
-}
-
+  {
+    "intent": "karts_on_track",
+    "keywords": ["how many karts", "karts at once", "track capacity", "number of karts", "max karts", "track limit", "simultaneous karts"],
+    "answer": "🏎️ We allow **up to 10 karts on the track at the same time** for safety and performance."
+  },
+  {
+    "intent": "booking_link",
+    "keywords": ["book", "booking", "reserve", "buy tickets", "book experience", "ticket link", "how to book", "ticket booking"],
+    "answer": "📅 You can book your tickets directly here: [Book Experience](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/book_experience.php)"
+  },
+  {
+    "intent": "birthday_parties",
+    "keywords": ["birthday", "party", "celebration", "group booking", "food", "catering", "kids party", "birthday event"],
+    "answer": "🎉 Yes! We host **birthday parties** and can even **cater food** if you let us know in advance!"
+  },
+  {
+    "intent": "f1_simulator",
+    "keywords": ["f1", "simulator", "formula", "racing sim", "discount sim", "sim", "racing", "simulation"],
+    "answer": "🏁 We have an **F1 racing simulator** at Gillingham! Get **50% off** when you use Karting Central tickets!"
+  },
+  {
+    "intent": "session_ticket_included",
+    "keywords": ["what does ticket include", "per ticket", "included", "one ticket", "full session", "ticket contents"],
+    "answer": "🎫 Each **Karting Central ticket** includes **1 full session** of racing. It’s your first step to the podium!"
+  },
+  {
+    "intent": "session_2_3_discount",
+    "keywords": ["session 2", "session 3", "discount", "second session", "third session", "multiple sessions", "session deals"],
+    "answer": "💥 Sessions 2 and 3 are available at **discounted prices**, but they must be **pre-booked** to secure the deal. Booking is done **over the phone**."
+  },
+  {
+    "intent": "session_3_price_tiers",
+    "keywords": ["third session", "price", "group size", "bulk", "ticket discounts", "cost", "cheaper", "tiered", "group discount"],
+    "answer": "💸 Session 3 pricing depends on how many people you book for:\n\n- 1–4 people: **£12**\n- 5–8 people: **£11**\n- 9–12 people: **£10**\n\n👉 The **more people**, the **cheaper the third session**!"
+  }
 ]
