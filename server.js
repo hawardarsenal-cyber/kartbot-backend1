@@ -1,34 +1,60 @@
-const express = require('express');
-const cors = require('cors');
-const fs = require('fs');
+const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const port = 3000;
 
-app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
-// Load FAQs
-const faqs = JSON.parse(fs.readFileSync('./faqs.json', 'utf8'));
+// Hardcoded keywords & intent matcher
+const intentKeywords = [
+  {
+    intent: "check_tickets",
+    keywords: ["tickets", "how many", "balance", "check my tickets"]
+  },
+  {
+    intent: "purchase_tickets",
+    keywords: ["buy tickets", "get tickets", "purchase", "book"]
+  },
+  {
+    intent: "opening_hours",
+    keywords: ["open", "close", "when", "time", "hours"]
+  }
+];
 
-// Basic keyword match
-function findAnswer(userInput) {
-  const input = userInput.toLowerCase();
-  for (const faq of faqs) {
-    if (faq.keywords.some(keyword => input.includes(keyword))) {
-      return faq.answer;
+// Intent-to-response mapping
+const intentResponses = {
+  check_tickets: "🎟️ You can check your tickets here: [Customer Dashboard](https://pos.kartingcentral.co.uk/home/download/pos2/pos2/custdash.php)",
+  purchase_tickets: "💸 You can purchase new tickets here: [Book Tickets](https://www.kartingcentral.co.uk/gokarting--ticket-bookings)",
+  opening_hours: "🕒 We're open from the afternoon until 10PM daily (except Mon & Tues)."
+};
+
+// Match user query to intent
+function getIntent(query) {
+  query = query.toLowerCase();
+  for (let entry of intentKeywords) {
+    for (let keyword of entry.keywords) {
+      if (query.includes(keyword.toLowerCase())) {
+        return entry.intent;
+      }
     }
   }
-  return "🤖 Hmm, I’m not sure. Could you try rephrasing?";
+  return null;
 }
 
-// POST /chat
-app.post('/chat', (req, res) => {
-  const message = req.body.message || '';
-  const reply = findAnswer(message);
-  res.json({ reply });
+// API Endpoint
+app.post("/api/faq-response", (req, res) => {
+  const { query } = req.body;
+  const intent = getIntent(query);
+
+  if (intent && intentResponses[intent]) {
+    return res.json({ response: intentResponses[intent] });
+  }
+
+  res.json({
+    response: "🤔 Sorry, I’m not sure about that one. Try asking something else!"
+  });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`✅ Chatbot API running at http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`API running at http://localhost:${port}`);
 });
