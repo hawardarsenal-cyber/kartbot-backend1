@@ -1,9 +1,23 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const app = express();
-const port = 3000;
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const { OpenAI } = require('openai');
 
-app.use(bodyParser.json());
+const app = express();
+const port = process.env.PORT || 3000;
+
+const allowedOrigins = ['https://pos.kartingcentral.co.uk'];
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['POST'],
+  credentials: false
+}));
+app.use(express.json());
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
 // Hardcoded keywords & intent matcher
 const intentKeywords = [
@@ -41,20 +55,30 @@ function getIntent(query) {
   return null;
 }
 
-// API Endpoint
-app.post("/api/faq-response", (req, res) => {
+// Main chatbot route
+app.post('/api/faq-response', async (req, res) => {
   const { query } = req.body;
-  const intent = getIntent(query);
 
+  // Try matching intent locally first
+  const intent = getIntent(query);
   if (intent && intentResponses[intent]) {
     return res.json({ response: intentResponses[intent] });
   }
 
-  res.json({
-    response: "🤔 Sorry, I’m not sure about that one. Try asking something else!"
-  });
+  // Fallback to OpenAI
+  try {
+    const chatCompletion = await openai.chat.completions.create({
+      model: 'gpt-4',
+      messages: [{ role: 'user', content: query }],
+    });
+
+    res.json({ response: chatCompletion.choices[0].message.content });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Something went wrong' });
+  }
 });
 
 app.listen(port, () => {
-  console.log(`API running at http://localhost:${port}`);
+  console.log(`✅ Chatbot API running at http://localhost:${port}`);
 });
